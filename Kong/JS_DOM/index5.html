@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload="welcome()">
+    <div id="box">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error omnis
+        officia dolores illo? Libero consectetur provident atque! Laudantium
+        assumenda dolorem dignissimos eius aut necessitatibus aperiam dicta
+        similique odio, delectus repellendus.
+      </p>
+    </div>
+    <label for="">Name: </label>
+    <input type="text" placeholder="enter your name" onfocus="hightlight(this)" onblur="unHightlight(this)">
+    <label for="">Choose your tool:</label>
+    <select name="" id="menu" onchange="getMenu()">
+        <option value="JavaScript">JavaScript</option>
+        <option value="Python">Python</option>
+        <option value="Bootstrap">Bootstrap</option>
+    </select>
+    <p id="display"></p>
+    <a href="" onmouseover="hightlight(this)" onmouseout="unHightlight(this)">Menu 1</a>
+    <a href="" onmouseover="hightlight(this)" onmouseout="unHightlight(this)">Menu 2</a>
+    <script src="app5.js"></script>
+  </body>
+</html>
