@@ -27,3 +27,10 @@
   <li>Object -> ตัวเล็กหมด</li>
   <li>Property -> ตัวพิมพ์เล็ก</li>
 </ul>
+
+## Constructor
+ฟังก์ชันที่จะถูกเรียกตอนสร้างวัตถุ
+<ol>
+  <li>Default Constructor -> Constructor เริ่มต้นที่มีอยู่ในทุก Class</li>
+  <li>Parameterized Constructor -> Constructor ที่สามารถส่ง parameter เข้าไปทำงานได้</li>
+</ol>
