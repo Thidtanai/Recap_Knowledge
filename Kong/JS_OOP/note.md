@@ -20,3 +20,11 @@
   <li>Inheritance (การสืบทอด)</li>
   <li>Polymorphism (การพ้องรูป)</li>
 </ol>
+
+# Class & Object
+สร้าง Class เสร็จแล้วจะนำไปสร้าง object
+<ul>
+  <li>Class -> ตัวแรกพิมใหญ๋เสมอ ex.User</li>
+</ul>
+
+
