@@ -34,3 +34,6 @@
   <li>Default Constructor -> Constructor เริ่มต้นที่มีอยู่ในทุก Class</li>
   <li>Parameterized Constructor -> Constructor ที่สามารถส่ง parameter เข้าไปทำงานได้</li>
 </ol>
+
+## Method
+การสร้าง Function ใน Class
