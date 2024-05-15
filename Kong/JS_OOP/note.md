@@ -21,10 +21,9 @@
   <li>Polymorphism (การพ้องรูป)</li>
 </ol>
 
-# Class & Object
-สร้าง Class เสร็จแล้วจะนำไปสร้าง object
+## กฏการตั้งชื่อ
 <ul>
-  <li>Class -> ตัวแรกพิมใหญ๋เสมอ ex.User</li>
+  <li>Class -> ตัวแรกพิมใหญ๋เสมอ ex.MyClass, User</li>
+  <li>Object -> ตัวเล็กหมด</li>
+  <li>Property -> ตัวพิมพ์เล็ก</li>
 </ul>
-
-
