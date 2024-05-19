@@ -53,3 +53,10 @@
   <li>Get</li>
   <li>Set</li>
 </ul>
+
+## Static
+### Static Property
+คือ Property ที่สามารถเรียกใช้งานได้โดยตรง ไม่ต้องเรียกผ่าน Obj
+### Static Method
+คือ Method ที่สามารถเรียกใช้งานได้โดยตรง ไม่ต้องเรียกผ่าน Obj
+Note -> static method สามารถใช้ได้แต่กับ static property หรือ method เหมือนกันเท่านั้น
