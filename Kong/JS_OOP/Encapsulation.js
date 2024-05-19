@@ -26,5 +26,5 @@ const user3 = new User("Sloth", "0033");
 
 user1.name = "Hacked";
 user1.password = "1111";
-//user1.privateFunc(); Cannot called
+//user1.privateFunc(); Cannot be called
 user1.showDetail();
