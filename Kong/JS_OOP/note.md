@@ -38,6 +38,8 @@
 ## Method
 การสร้าง Function ใน Class
 
+---
+
 ## Encapsulation
 เป็นกระบวนการซ่อนรายละเอียดการทำงานและข้อมูลไว้ภายใน ไม่ให้ภายนอกสามารถมองเห็นและเปลี่ยนแปลงข้อมูลภายในได้ เพื่อเป็นการสร้างความปลอดภัยให้แก่ข้อมูล
 ### Access Modifier
@@ -55,8 +57,28 @@
 </ul>
 
 ## Static
-### Static Property
-คือ Property ที่สามารถเรียกใช้งานได้โดยตรง ไม่ต้องเรียกผ่าน Obj
-### Static Method
-คือ Method ที่สามารถเรียกใช้งานได้โดยตรง ไม่ต้องเรียกผ่าน Obj
-Note -> static method สามารถใช้ได้แต่กับ static property หรือ method เหมือนกันเท่านั้น
+<ul>
+  <li><strong>Static Property</strong></li>
+    <p>
+      คือ Property ที่สามารถเรียกใช้งานได้โดยตรง ไม่ต้องเรียกผ่าน Obj
+    </p>
+  <li><strong>Static Method</strong></li>
+    <p>
+      คือ Method ที่สามารถเรียกใช้งานได้โดยตรง ไม่ต้องเรียกผ่าน Obj
+    </p>
+</ul>
+
+> Static method สามารถใช้ได้แต่กับ Static property หรือ method เหมือนกันเท่านั้น
+
+---
+
+## Inheritance
+คือ การสร้างสิ่งใหม่ด้วยการสืบทอด คุณสมบัติจากสิ่งที่มีอยู่เดิมแล้ว
+<ul>
+  <li><strong>Super class</strong></li>
+  <p>Ex. User</p>
+  <li><strong>Sub class</strong></li>
+  <p>Ex. Teacher, Student</p>
+</ul>
+
+> 1 Class สามารถสืบทอดได้แค่ Class เดียวเท่านั้น
