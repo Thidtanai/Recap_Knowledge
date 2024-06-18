@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-//import App from "./App";
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import HelloComponent from "./HelloComponent";
+//import HelloComponent from "./HelloComponent";
 
 //การสร้าง function component
 // function HelloComponent() {
@@ -18,7 +18,7 @@ import HelloComponent from "./HelloComponent";
 // }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HelloComponent />);
+root.render(<App />);
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
