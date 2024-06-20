@@ -1,11 +1,20 @@
-const Item = () => {
-  const name = "เที่ยว";
-  const amount = 5000;
+/* Method1 */
+const Item = (props) => {
+  const {title, amount} = props;
   return (
     <li>
-      {name} <span> -{amount}</span>
+      {title} <span>{amount}</span>
     </li>
   );
 };
+
+/* Method2 */
+// const Item = ({title, amount}) => {
+//   return (
+//     <li>
+//       {title} <span>{amount}</span>
+//     </li>
+//   );
+// };
 
 export default Item;
