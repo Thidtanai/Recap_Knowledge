@@ -1,7 +1,9 @@
 const Item = () => {
+  const name = "เที่ยว";
+  const amount = 5000;
   return (
     <li>
-      item <span>200</span>
+      {name} <span> -{amount}</span>
     </li>
   );
 };
