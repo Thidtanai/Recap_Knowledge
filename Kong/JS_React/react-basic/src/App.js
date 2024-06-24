@@ -3,6 +3,7 @@ import "./App.css";
 import React from "react";
 
 import Transaction from "./components/Transaction";
+import FormComponent from "./components/FormComponent";
 
 // Nested component
 const Title = () => (
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="container">
       <Title />
+      <FormComponent />
       <Transaction />
     </div>
   );
