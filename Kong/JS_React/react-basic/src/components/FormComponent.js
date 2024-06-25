@@ -1,16 +1,29 @@
 import "./FormComponent.css";
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid"; //Use id for key
 
-const FormComponent = () => {
+const FormComponent = (props) => {
+  const [title, setTitle] = useState("");
+  const [amount, setAmount] = useState(0);
+
   const inputTitle = (event) => {
-    console.log(event.target.value);
+    setTitle(event.target.value);
   };
   const inputAmount = (event) => {
-    console.log(event.target.value);
+    setAmount(event.target.value);
   };
   const saveItem = (event) => {
     event.preventDefault();
-    console.log("บันทึกข้อมูลเรียบร้อย")
+    const itemData = {
+      id: uuidv4(),
+      title: title,
+      amount: Number(amount),
+    };
+    props.onAddItem(itemData); //Send to parent
+    setTitle("");
+    setAmount(0);
   };
+
   return (
     <div>
       <form onSubmit={saveItem}>
@@ -20,6 +33,7 @@ const FormComponent = () => {
             type="text"
             placeholder="ระบุชื่อรายการ"
             onChange={inputTitle}
+            value={title}
           ></input>
         </div>
         <div className="form-control">
@@ -28,6 +42,7 @@ const FormComponent = () => {
             type="number"
             placeholder="(+ รายรับ, - รายจ่าย)"
             onChange={inputAmount}
+            value={amount}
           ></input>
         </div>
         <div className="form-control">

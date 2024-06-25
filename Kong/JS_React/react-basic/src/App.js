@@ -1,6 +1,7 @@
 //import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
+import { useState } from "react";
 
 import Transaction from "./components/Transaction";
 import FormComponent from "./components/FormComponent";
@@ -13,11 +14,26 @@ const Title = () => (
 );
 
 function App() {
+  //Data send to Transaction
+  const initData = [
+    { id: 1, title: "ค่ารักษาพยาบาล", amount: 2000 },
+    { id: 2, title: "เงินเดือน", amount: 50000 },
+    { id: 3, title: "ค่าเดินทาง", amount: 200 },
+  ];
+
+  const [items, setItems] = useState([]);
+  //Data receive from Form
+  const onAddNewItem = (newItem) => {
+    setItems((prevItem) => {
+      return [newItem, ...prevItem];
+    });
+  };
+
   return (
     <div className="container">
       <Title />
-      <FormComponent />
-      <Transaction />
+      <FormComponent onAddItem={onAddNewItem} />
+      <Transaction items={items} />
     </div>
   );
 }
