@@ -14,15 +14,9 @@ const Title = () => (
 );
 
 function App() {
-  //Data send to Transaction
-  const initData = [
-    { id: 1, title: "ค่ารักษาพยาบาล", amount: 2000 },
-    { id: 2, title: "เงินเดือน", amount: 50000 },
-    { id: 3, title: "ค่าเดินทาง", amount: 200 },
-  ];
-
+  //Data is send to Transaction
   const [items, setItems] = useState([]);
-  //Data receive from Form
+  //Data is receive from Form
   const onAddNewItem = (newItem) => {
     setItems((prevItem) => {
       return [newItem, ...prevItem];
