@@ -1,6 +1,5 @@
 import PropTypes from "prop-types"; //For validate props type
 import "./Item.css";
-import DataContext from "../data/DataContext";
 
 /* Method1 */
 const Item = (props) => {
@@ -14,8 +13,6 @@ const Item = (props) => {
         {symbol}
         {Math.abs(amount)}
       </span>
-      {/* Consumer */}
-      <DataContext.Consumer>{(value) => <p>{value}</p>}</DataContext.Consumer>
     </li>
   );
 };
