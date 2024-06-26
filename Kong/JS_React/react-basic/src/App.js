@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import Transaction from "./components/Transaction";
 import FormComponent from "./components/FormComponent";
+import DataContext from "./data/DataContext";
 
 // Nested component
 const Title = () => (
@@ -24,11 +25,14 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <Title />
-      <FormComponent onAddItem={onAddNewItem} />
-      <Transaction items={items} />
-    </div>
+    // Provider
+    <DataContext.Provider value={"Thidtanai"}>
+      <div className="container">
+        <Title />
+        <FormComponent onAddItem={onAddNewItem} />
+        <Transaction items={items} />
+      </div>
+    </DataContext.Provider>
   );
 }
 
