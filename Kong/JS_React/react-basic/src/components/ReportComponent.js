@@ -15,7 +15,7 @@ const ReportComponent = () => {
         )}
       </DataContext.Consumer> */}
       <h4>Total (baht)</h4>
-      <h1>฿{income - expense}</h1>
+      <h1>฿{(income - expense).toFixed(2)}</h1>
       <div className="report-container">
         <div>
           <h4>Income</h4>
