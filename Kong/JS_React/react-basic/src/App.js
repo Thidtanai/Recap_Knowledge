@@ -1,7 +1,7 @@
 //import logo from "./logo.svg";
 import "./App.css";
 import React, { useEffect } from "react";
-import { useState } from "react";
+import { useState, useReducer } from "react";
 
 import Transaction from "./components/Transaction";
 import FormComponent from "./components/FormComponent";
@@ -41,6 +41,19 @@ function App() {
     setReportIncome(income);
     setReportExpense(Math.abs(expense));
   }, [items, reportIncome, reportExpense]);
+
+  //reducer state
+  const [showReport, setShowReport] = useState(false);
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "SHOW":
+        return setShowReport(true);
+      case "HIDE":
+        return setShowReport(false);
+    }
+  };
+  const [result, dispatch] = useReducer(reducer, showReport);
+
   return (
     /* Provider */
     <DataContext.Provider
@@ -51,9 +64,17 @@ function App() {
     >
       <div className="container">
         <Title />
-        <ReportComponent />
+        {showReport && <ReportComponent />}
         <FormComponent onAddItem={onAddNewItem} />
         <Transaction items={items} />
+        {/* Reducer */}
+        <h1>{result}</h1>
+        <button onClick={() => dispatch({ type: "SHOW"})}>
+          Show
+        </button>
+        <button onClick={() => dispatch({ type: "HIDE"})}>
+          Hide
+        </button>
       </div>
     </DataContext.Provider>
   );
