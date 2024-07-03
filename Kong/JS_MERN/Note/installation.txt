@@ -1,3 +1,26 @@
 Node version 14
 1.client 
-- npx create-react-app
+- npx create-react-app (React)
+- (install boostrap)
+2.server
+- npm init -y (package)
+- npm install express jsonwebtoken cors nodemon dotenv slugify express-jwt morgan
+- npm install mongoose@6.0.12 (mongoose)
+
+Package is used in backend
+- express
+- mongoose
+- jsonwebtoken
+    กำหนดความปลอดภัย API, Authentication
+- cors
+    จัดการกลไกของ server ให้สามารถอณุญาตการร้่อง resource ที่ถูกเรียกจากโดเมนอื่น
+- nodemon
+- dotenv (file .env)
+    ใช้กำหนดการตั้งค่าการเข้าถึงตัวแปรของระบบสำหรับจัดการสภาพแวดล้อมในแอพ
+    เช่น PORT, API, Database, Token เข้าถึงโดย process.env.{variable}
+- slugify
+    ใช้กำหนด URL
+- express-jwt
+    ตรวจสอบ json web token
+- morgan
+    เก็บ log จาก HTTP request
