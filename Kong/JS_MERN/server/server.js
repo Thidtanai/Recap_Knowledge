@@ -6,6 +6,15 @@ require("dotenv").config(); //use with .env file
 
 const app = express(); //create express web server
 
+//connect cloud database
+mongoose
+  .connect(process.env.DATABASE, {
+    useNewUrlParser: true,
+    useUnifiedTopology: false,
+  })
+  .then(() => console.log("เชื่อมต่อเรียบร้อย"))
+  .catch((err) => console.log(err));
+
 //middleware
 app.use(express.json()); //REST API with json
 app.use(cors());

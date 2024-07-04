@@ -1,0 +1,3 @@
+user: thidsloth
+pass: kHS3rHlUxEhmecZB
+data_base: mongodb+srv://thidsloth:kHS3rHlUxEhmecZB@mern-workshop.ijq3xz7.mongodb.net/?retryWrites=true&w=majority&appName=mern-workshop
