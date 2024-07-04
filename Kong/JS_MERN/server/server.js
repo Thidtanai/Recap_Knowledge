@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config(); //use with .env file
+const blogRoute = require("./route/blog")
 
 const app = express(); //create express web server
 
@@ -21,11 +22,7 @@ app.use(cors());
 app.use(morgan("dev")); //filter request
 
 //route
-app.get("*", (req, res) => {
-  res.json({
-    data: "message from server",
-  });
-});
+app.use('/api',blogRoute)   //api/blog
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Start server in port ${port}`));
