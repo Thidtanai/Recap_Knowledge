@@ -1,6 +1,8 @@
 //Connect to database
+
+//Save data
 exports.create = (req, res) => {
   res.json({
-    data: "Hello From Controller API",
+    data: req.body,
   });
 };
