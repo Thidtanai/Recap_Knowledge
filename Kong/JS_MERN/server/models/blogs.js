@@ -25,7 +25,6 @@ const blogSchema = mongoose.Schema(
       type: String,
       lowercase: true,
       unique: true,
-      require: true,
     },
   },
   { timestamps: true }
