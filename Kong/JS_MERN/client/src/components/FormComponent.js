@@ -3,6 +3,7 @@
  */
 
 import { useState } from "react";
+import NavbarComponent from "./NavbarComponent";
 
 const FormComponent = () => {
   const [state, setState] = useState({
@@ -18,6 +19,7 @@ const FormComponent = () => {
 
   return (
     <div className="container p-5">
+      <NavbarComponent />
       <h1>เขียนบทความ</h1>
       <form>
         <div className="form-group">
