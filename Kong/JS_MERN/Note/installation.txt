@@ -2,6 +2,9 @@ Node version 14
 1.client 
 - npx create-react-app (React)
 - (install boostrap)
+
+- npm install react-router-dom@5.3.0
+
 2.server
 - npm init -y (package)
 - npm install express jsonwebtoken cors nodemon dotenv slugify express-jwt morgan
