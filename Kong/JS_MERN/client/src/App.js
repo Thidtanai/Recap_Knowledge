@@ -1,8 +1,8 @@
 function App() {
   return (
-    <div className="container">
+    <div className="container p-5">
       <h1>MERN STACK | Workshop</h1>
-      <button className="btn btn-primary">Boostrap</button>
+      <a className="btn btn-primary" href="/create">เขียนบทความ</a>
     </div>
   );
 }
