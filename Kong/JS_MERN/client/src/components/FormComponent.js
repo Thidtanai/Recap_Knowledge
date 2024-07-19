@@ -16,12 +16,16 @@ const FormComponent = () => {
   const inputValue = (name) => (event) => {
     setState({ ...state, [name]: event.target.value });
   };
+  const submitForm = (e)=>{
+    e.preventDefault();
+    console.table({title, content, author});
+  }
 
   return (
     <div className="container p-5">
       <NavbarComponent />
       <h1>เขียนบทความ</h1>
-      <form>
+      <form onSubmit={submitForm}>
         <div className="form-group">
           <label>ชื่อบทความ</label>
           <input

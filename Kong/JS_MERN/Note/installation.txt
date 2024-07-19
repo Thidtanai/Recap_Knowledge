@@ -4,6 +4,7 @@ Node version 14
 - (install boostrap)
 
 - npm install react-router-dom@5.3.0
+- npm install axios
 
 2.server
 - npm init -y (package)
@@ -27,3 +28,7 @@ Package is used in backend
     ตรวจสอบ json web token
 - morgan
     เก็บ log จาก HTTP request
+
+Package is used in frontend
+- axios 
+    ใช้ส่งข้อมูลจาก client ไป server
