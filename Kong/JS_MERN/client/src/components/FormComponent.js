@@ -4,6 +4,7 @@
 
 import { useState } from "react";
 import NavbarComponent from "./NavbarComponent";
+import axios from "axios";
 
 const FormComponent = () => {
   const [state, setState] = useState({
@@ -16,10 +17,23 @@ const FormComponent = () => {
   const inputValue = (name) => (event) => {
     setState({ ...state, [name]: event.target.value });
   };
-  const submitForm = (e)=>{
+  const submitForm = (e) => {
     e.preventDefault();
-    console.table({title, content, author});
-  }
+    console.log("API URL:", process.env.REACT_APP_API);
+    axios
+      .post(`${process.env.REACT_APP_API}/create`, {
+        title,
+        content,
+        author,
+      })
+      .then((response) => {
+        alert("บันทึกข้อมูลเรียบร้อย");
+      })
+      .catch((err) => {
+        // error จากที่เราตั้งไว้ใน controller ที่ server
+        alert(err.response.data.error);
+      });
+  };
 
   return (
     <div className="container p-5">
