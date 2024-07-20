@@ -5,6 +5,7 @@
 import { useState } from "react";
 import NavbarComponent from "./NavbarComponent";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const FormComponent = () => {
   const [state, setState] = useState({
@@ -27,11 +28,20 @@ const FormComponent = () => {
         author,
       })
       .then((response) => {
-        alert("บันทึกข้อมูลเรียบร้อย");
+        Swal.fire({
+          title: "แจ้งเตือน",
+          text: "บันทึกข้อมูลบทความเรียบร้อย",
+          icon: "success",
+        });
+        setState({ ...state, title: "", content: "", author: "" });
       })
       .catch((err) => {
         // error จากที่เราตั้งไว้ใน controller ที่ server
-        alert(err.response.data.error);
+        Swal.fire({
+          title: "แจ้งเตือน",
+          text: err.response.data.error,
+          icon: "error",
+        });
       });
   };
 

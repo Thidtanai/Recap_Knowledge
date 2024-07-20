@@ -5,6 +5,7 @@ Node version 14
 
 - npm install react-router-dom@5.3.0
 - npm install axios
+- npm install sweetalert2
 
 2.server
 - npm init -y (package)
@@ -32,3 +33,5 @@ Package is used in backend
 Package is used in frontend
 - axios 
     ใช้ส่งข้อมูลจาก client ไป server
+- sweetalert2
+    ให้ alert สวยขึ้น
