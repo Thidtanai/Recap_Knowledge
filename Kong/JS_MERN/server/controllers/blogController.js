@@ -1,13 +1,17 @@
 //Connect to database / interact with database
 const slugify = require("slugify");
 const Blogs = require("../models/blogs");
-const blogs = require("../models/blogs");
+const { v4: uuidv4 } = require("uuid");
 
 //Save data
 exports.create = (req, res) => {
   const { title, content, author } = req.body;
-  const slug = slugify(title); //กำหนด url บทความ
+  let slug = slugify(title); //กำหนด url บทความ
 
+  if (!slug) {
+    // generate slug for thai case
+    slug = uuidv4();
+  }
   //Validate
   switch (true) {
     case !title:
@@ -34,5 +38,17 @@ exports.create = (req, res) => {
 exports.getAllBlogs = (req, res) => {
   Blogs.find({}).exec((err, blogs) => {
     res.json(blogs);
+  });
+};
+
+//Get single blog
+/**
+ * ดึงบทความที่สนใจอ้างอิงตาม slug
+ */
+exports.singleBlog = (req, res) => {
+  const { slug } = req.params; // blog/:slug
+
+  Blogs.findOne({ slug }).exec((err, blog) => {
+    res.json(blog);
   });
 };
