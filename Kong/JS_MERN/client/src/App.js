@@ -62,7 +62,12 @@ function App() {
               ผู้เขียน: {blog.author} , เผยแพร่:{" "}
               {new Date(blog.createdAt).toLocaleString()}{" "}
             </p>
-            <button className="btn btn-outline-success">อัพเดตบทความ</button>
+            <Link
+              to={`/blog/edit/${blog.slug}`}
+              className="btn btn-outline-success"
+            >
+              แก้ไขบทความ
+            </Link>
             &nbsp;
             <button
               className="btn btn-outline-danger"

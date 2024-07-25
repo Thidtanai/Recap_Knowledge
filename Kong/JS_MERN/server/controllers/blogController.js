@@ -62,3 +62,24 @@ exports.remove = (req, res) => {
     res.json({ message: "ลบบทความเรียบร้อย" });
   });
 };
+
+//Update blog
+/**
+ *
+ * @param {title, content, author} req
+ * @param {*} res
+ */
+exports.update = (req, res) => {
+  const { slug } = req.params;
+  const { title, content, author } = req.body;
+
+  // (fineOne, updateData, optionNew)
+  Blogs.findOneAndUpdate(
+    { slug },
+    { title, content, author },
+    { new: true }
+  ).exec((err, blog) => {
+    if (err) console.log(err);
+    res.json(blog);
+  });
+};
