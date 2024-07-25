@@ -2,6 +2,7 @@ import NavbarComponent from "./components/NavbarComponent";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function App() {
   const [blogs, setBlogs] = useState([]);
@@ -15,6 +16,27 @@ function App() {
       .catch((err) => {
         alert(err);
       });
+  };
+
+  const confirmDelete = (slug) => {
+    Swal.fire({
+      title: "ต้องการลบหรือไม่?",
+      icon: "warning",
+      showCancelButton: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteBlog(slug);
+      }
+    });
+  };
+  const deleteBlog = (slug) => {
+    axios
+      .delete(`${process.env.REACT_APP_API}/blog/${slug}`)
+      .then((response) => {
+        Swal.fire("Deleted", response.data.message, "success");
+        fetchData();
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
@@ -40,6 +62,14 @@ function App() {
               ผู้เขียน: {blog.author} , เผยแพร่:{" "}
               {new Date(blog.createdAt).toLocaleString()}{" "}
             </p>
+            <button className="btn btn-outline-success">อัพเดตบทความ</button>
+            &nbsp;
+            <button
+              className="btn btn-outline-danger"
+              onClick={() => confirmDelete(blog.slug)}
+            >
+              ลบบทความ
+            </button>
           </div>
         </div>
       ))}
