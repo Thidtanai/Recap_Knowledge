@@ -6,6 +6,8 @@ Node version 14
 - npm install react-router-dom@5.3.0
 - npm install axios
 - npm install sweetalert2
+- npm install react-quill
+- npm install react-render-html
 
 2.server
 - npm init -y (package)
@@ -37,3 +39,7 @@ Package is used in frontend
     ใช้ส่งข้อมูลจาก client ไป server
 - sweetalert2
     ให้ alert สวยขึ้น
+- react-quill
+    ให้แต่งตัวอักษรได้ดีขึ้น (rich text)
+- react-render-html
+    ให้สามารถแสดงข้อความติด html ได้
