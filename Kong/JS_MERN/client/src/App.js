@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import renderHTML from 'react-render-html';
 
 function App() {
   const [blogs, setBlogs] = useState([]);
@@ -56,7 +57,10 @@ function App() {
             <Link to={`/blog/${blog.slug}`}>
               <h2>{blog.title}</h2>
             </Link>
-            <p>{blog.content.substring(0, 250)}</p>
+            {/* <p>{blog.content.substring(0, 250)}</p> */}
+            <div className="pt-3">
+              {renderHTML(blog.content.substring(0, 250))}
+            </div>
             <p className="text-muted">
               {" "}
               ผู้เขียน: {blog.author} , เผยแพร่:{" "}

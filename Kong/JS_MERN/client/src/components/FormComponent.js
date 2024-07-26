@@ -6,14 +6,20 @@ import { useState } from "react";
 import NavbarComponent from "./NavbarComponent";
 import axios from "axios";
 import Swal from "sweetalert2";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const FormComponent = () => {
   const [state, setState] = useState({
     title: "",
-    content: "",
     author: "",
   });
-  const { title, content, author } = state;
+  const { title, author } = state;
+  const [content, setContent] = useState("");
+
+  const submitContent = (event) => {
+    setContent(event);
+  };
 
   const inputValue = (name) => (event) => {
     setState({ ...state, [name]: event.target.value });
@@ -33,7 +39,8 @@ const FormComponent = () => {
           text: "บันทึกข้อมูลบทความเรียบร้อย",
           icon: "success",
         });
-        setState({ ...state, title: "", content: "", author: "" });
+        setState({ ...state, title: "", author: "" });
+        setContent("");
       })
       .catch((err) => {
         // error จากที่เราตั้งไว้ใน controller ที่ server
@@ -61,11 +68,19 @@ const FormComponent = () => {
         </div>
         <div className="form-group">
           <label>รายละเอียด</label>
-          <textarea
+          {/* <textarea
             className="form-control"
             value={content}
             onChange={inputValue("content")}
-          ></textarea>
+          ></textarea> */}
+          <ReactQuill
+            value={content}
+            onChange={submitContent}
+            theme="snow"
+            className="pb-5 mb-3"
+            placeholder="เขียนรายละเอียดของบทความ"
+            style={{ border: "1px solid #666" }}
+          />
         </div>
         <div className="form-group">
           <label>ผู้แต่ง</label>
