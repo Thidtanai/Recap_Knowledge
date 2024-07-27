@@ -8,11 +8,12 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { getUser } from "../services/authorize";
 
 const FormComponent = () => {
   const [state, setState] = useState({
     title: "",
-    author: "",
+    author: getUser(),
   });
   const { title, author } = state;
   const [content, setContent] = useState("");
@@ -93,9 +94,6 @@ const FormComponent = () => {
         </div>
         <br />
         <input type="submit" value="บันทึก" className="btn btn-primary" />
-        <a className="btn btn-success" href="/">
-          หน้าแรก
-        </a>
       </form>
     </div>
   );

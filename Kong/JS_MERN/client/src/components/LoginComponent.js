@@ -1,8 +1,8 @@
 import NavbarComponent from "./NavbarComponent";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { authenticate } from "../services/authorize";
+import { authenticate, getUser } from "../services/authorize";
 import { withRouter } from "react-router-dom";
 
 /**
@@ -36,6 +36,10 @@ const LoginComponent = (props) => {
         Swal.fire("แจ้งเตือน", err.response.data.error, "error");
       });
   };
+
+  useEffect(() => {
+    getUser() && props.history.push("/")
+  }, []);
 
   return (
     <div className="container p-5">

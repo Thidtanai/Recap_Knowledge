@@ -1,7 +1,8 @@
-import { Link, withRotuer } from "react-router-dom";
-import { getUser } from "../services/authorize";
+import { Link, withRouter } from "react-router-dom";
+import { getUser, logout } from "../services/authorize";
 
-const NavbarComponent = () => {
+const NavbarComponent = ({ history }) => {
+  //ใช้ได้เหมือน props.history
   return (
     <nav>
       <ul className="nav nav-tabs">
@@ -10,11 +11,13 @@ const NavbarComponent = () => {
             หน้าแรก
           </Link>
         </li>
-        <li className="nav-item pr-3 pt-3 pb-3">
-          <Link to="/create" className="nav-link">
-            เขียนบทความ
-          </Link>
-        </li>
+        {getUser() && (
+          <li className="nav-item pr-3 pt-3 pb-3">
+            <Link to="/create" className="nav-link">
+              เขียนบทความ
+            </Link>
+          </li>
+        )}
         {!getUser() && (
           <li className="nav-item pr-3 pt-3 pb-3">
             <Link to="/login" className="nav-link">
@@ -22,9 +25,23 @@ const NavbarComponent = () => {
             </Link>
           </li>
         )}
+        {getUser() && (
+          <li className="nav-item pr-3 pt-3 pb-3">
+            <button
+              onClick={() =>
+                logout(() => {
+                  history.push("/");
+                })
+              }
+              className="nav-link"
+            >
+              ออกจากระบบ
+            </button>
+          </li>
+        )}
       </ul>
     </nav>
   );
 };
 
-export default NavbarComponent;
+export default withRouter(NavbarComponent);

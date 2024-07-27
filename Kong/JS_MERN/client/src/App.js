@@ -3,7 +3,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import renderHTML from 'react-render-html';
+import renderHTML from "react-render-html";
+import { getUser } from "./services/authorize";
 
 function App() {
   const [blogs, setBlogs] = useState([]);
@@ -66,19 +67,24 @@ function App() {
               ผู้เขียน: {blog.author} , เผยแพร่:{" "}
               {new Date(blog.createdAt).toLocaleString()}{" "}
             </p>
-            <Link
-              to={`/blog/edit/${blog.slug}`}
-              className="btn btn-outline-success"
-            >
-              แก้ไขบทความ
-            </Link>
-            &nbsp;
-            <button
-              className="btn btn-outline-danger"
-              onClick={() => confirmDelete(blog.slug)}
-            >
-              ลบบทความ
-            </button>
+            
+            {getUser() && (
+              <div>
+                <Link
+                  to={`/blog/edit/${blog.slug}`}
+                  className="btn btn-outline-success"
+                >
+                  แก้ไขบทความ
+                </Link>
+                &nbsp;
+                <button
+                  className="btn btn-outline-danger"
+                  onClick={() => confirmDelete(blog.slug)}
+                >
+                  ลบบทความ
+                </button>
+              </div>
+            )}
           </div>
         </div>
       ))}
