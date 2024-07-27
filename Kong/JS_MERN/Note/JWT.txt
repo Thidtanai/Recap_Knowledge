@@ -1,0 +1,11 @@
+เป็นมาตรฐานการส่งข้อมูล ในรูปแบบ JSON Object 
+โดยข้อมูลสามารถตรวจสอบและเชื่อถือได้
+เพราะมีเก็บข้อมูล license และ secret key เอาไว้ตรวจสอบการยืนยันตัวตนฃ
+
+flow
+1. client ส่ง username, password -> server
+2. server ตรวจแล้วสร้าง unique jwt (token ที่ไม่ซ้ำกัน)
+3. ส่ง token -> client
+4. เก็บ token (ที่ cookie || session storage)
+5. ถ้า client ส่ง req ไปใหม่จะติด token ไปด้วย
+ุ6. server ตรวจสอบ token แล้วส่ง res กลับ

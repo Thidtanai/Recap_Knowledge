@@ -15,6 +15,8 @@ Node version 14
 - npm install mongoose@6.0.12 (mongoose)
 
 - npm install uuid
+- npm install react-quill
+- npm install react-render-html
 
 Package is used in backend
 - express
