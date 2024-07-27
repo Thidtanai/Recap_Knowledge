@@ -2,8 +2,15 @@ import NavbarComponent from "./NavbarComponent";
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { authenticate } from "../services/authorize";
+import { withRouter } from "react-router-dom";
 
-const LoginComponent = () => {
+/**
+ *
+ * @param {ข้อมูลของpathที่เราทำงาน} props
+ * @returns
+ */
+const LoginComponent = (props) => {
   const [state, setState] = useState({
     username: "",
     password: "",
@@ -22,7 +29,8 @@ const LoginComponent = () => {
         password,
       })
       .then((response) => {
-        alert(response);
+        // login สำเร็จ
+        authenticate(response, () => props.history.push("/create"));
       })
       .catch((err) => {
         Swal.fire("แจ้งเตือน", err.response.data.error, "error");
@@ -59,4 +67,5 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+// เก็บประวัติการเรียกใช้งานว่าจะให้ไปไหน
+export default withRouter(LoginComponent);
