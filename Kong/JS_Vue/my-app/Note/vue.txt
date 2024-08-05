@@ -1,0 +1,4 @@
+1) Interporation -> {{ Variable, Method }}
+2) v-html -> v-html="attribute"
+3) Attribute binding -> v-bind:attribute="" || :attribute=""
+4) Event -> v-on:event="method" || @event="method"
