@@ -5,41 +5,50 @@
     <img :src="picture" :width="size" :height="size" ref="imageEl" /><br />
 
     <!-- ป้อนชื่อเล่น : <input type="text" v-on:input="setNickName" /> -->
-    <form @submit.prevent="submitForm">
+    <!-- <form @submit.prevent="submitForm">
       <lable>ป้อนชื่อเล่น: </lable>
-      <!-- <input type="text" v-on:input="setNickName" ref="nickNameEl" /> -->
+      <input type="text" v-on:input="setNickName" ref="nickNameEl" />
       <input type="text" ref="nickNameEl" />
       <button type="submit">บันทึก</button>
-    </form>
+    </form> -->
 
     <!-- Interporation ดึงตัวแปรจาก data มาใช้งาน -->
     <h1>ชื่อ-นามสกุล : {{ getFullName() }}</h1>
-    <h1>ชื่อเล่น : {{ nickName }}</h1>
+    <!-- <h1>ชื่อเล่น : {{ nickName }}</h1> -->
     <h1>อายุ : {{ age }} ปี</h1>
 
-    <!-- v-html -->
-    <p>ที่อยู่ : <span v-html="address"></span></p>
+    <!-- v-show -->
+    <button @click="toggleVisible()">
+      {{ isVisible ? "ซ่อน" : "แสดง" }}รายละเอียด
+    </button>
+    <article v-show="isVisible">
+      <!-- v-html -->
+      <p>ที่อยู่ : <span v-html="address"></span></p>
 
-    <p>Social: <a :href="social" target="_blank">Facebook</a></p>
-    <p>งานอดิเรก:</p>
-    <ul>
-      <li>{{ hobby[0] }}</li>
-      <li>{{ hobby[1] }}</li>
-      <li>{{ hobby[2] }}</li>
-    </ul>
-    <p>ข้อมูลพื้นฐาน:</p>
-    <ul>
-      <li>เพศ: {{ general.gender }}</li>
-      <li>น้ำหนัก: {{ general.weight }} kg</li>
-      <li>ส่วนสูง: {{ general.height }} cm</li>
-      <li>โรคประจำตัว: {{ general.status }}</li>
-    </ul>
+      <p>Social: <a :href="social" target="_blank">Facebook</a></p>
+      <p v-if="hobby.length === 0">ไม่มีงานอดิเรก</p>
+      <div v-else>
+        <p>งานอดิเรก:</p>
+        <ul>
+          <!-- v-for -->
+          <li v-for="(item, index) in hobby" :key="index">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+      <p>ข้อมูลพื้นฐาน:</p>
+      <ul>
+        <li v-for="(item, key) in general" :key="key">
+          {{ key }} : {{ item }}
+        </li>
+      </ul>
+    </article>
 
     <!-- Event -->
     <!-- <button v-on:click="showData">คลิกเพื่อดูข้อมูล</button> -->
-    <button @click="showData()">คลิกเพื่อดูข้อมูล</button>
+    <!-- <button @click="showData()">คลิกเพื่อดูข้อมูล</button>
     <button @click.ctrl="increment(10)">เพิ่ม</button>
-    <button @click.middle="decrement(5)">ลด</button>
+    <button @click.middle="decrement(5)">ลด</button> -->
   </section>
 </template>
 
@@ -50,19 +59,20 @@ export default {
     return {
       firstName: "Kong",
       lastName: "Ruksiam",
-      nickName: "",
+      // nickName: "",
       age: 15,
       address: "<strong>กรุงเทพ</strong>",
       picture: "https://cdn-icons-png.flaticon.com/512/3685/3685367.png",
       size: 50,
       social: "https://www.facebook.com/Thidtanai-Kaewphet",
-      hobby: ["ทำสวน", "เล่นเกม", "ฟังเพลง"],
+      hobby: ["ทำสวน", "เล่นเกม", "ฟังเพลง", "ดูหนัง"],
       general: {
         gender: "ชาย",
         weight: 70.4,
         height: 170,
         status: false,
       },
+      isVisible: false,
     };
   },
   methods: {
@@ -86,6 +96,9 @@ export default {
       //e.preventDefault();
       alert("บันทึกชื่อเล่นเรียบร้อย");
       this.nickName = this.$refs.nickNameEl.value;
+    },
+    toggleVisible() {
+      this.isVisible = !this.isVisible;
     },
   },
 };
