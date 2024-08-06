@@ -13,9 +13,12 @@
     </form> -->
 
     <!-- Interporation ดึงตัวแปรจาก data มาใช้งาน -->
-    <h1>ชื่อ-นามสกุล : {{ getFullName() }}</h1>
+    <h1>ชื่อ-นามสกุล : {{ getFullName }}</h1>
     <!-- <h1>ชื่อเล่น : {{ nickName }}</h1> -->
     <h1>อายุ : {{ age }} ปี</h1>
+    <h1>เงินเดือน : {{ salary }} บาท</h1>
+    <h1>ตำแหน่งงาน : {{ getDepartment }}</h1>
+    <button @click="addSalary(5000)">เพิ่มเงินเดือน</button>
 
     <!-- v-show -->
     <button @click="toggleVisible()">
@@ -73,13 +76,10 @@ export default {
         status: false,
       },
       isVisible: false,
+      salary: 18000,
     };
   },
   methods: {
-    getFullName() {
-      //return this.firstName + " " + this.lastName
-      return `${this.firstName + " " + this.lastName}`;
-    },
     showData() {
       alert(this.firstName);
     },
@@ -99,6 +99,21 @@ export default {
     },
     toggleVisible() {
       this.isVisible = !this.isVisible;
+    },
+    addSalary(value) {
+      this.salary += value;
+    },
+  },
+  computed: {
+    getFullName() {
+      //return this.firstName + " " + this.lastName
+      return `${this.firstName + " " + this.lastName}`;
+    },
+    getIncome() {
+      return this.salary * 12;
+    },
+    getDepartment() {
+      return this.salary >= 35000 ? "Project manager" : "Programmer";
     },
   },
 };
