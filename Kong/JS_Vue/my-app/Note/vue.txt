@@ -8,3 +8,5 @@
 8) Computed Properties -> ถูกเรียกใช้เมื่อข้อมูลเปลี่ยนแปลงค่า (ทำ Async ไม่ได้)
 9) Method Properties -> ถูกเรียกใช้ทุกครั้งที่ render หน้าใหม่
 10) Wathcers Properties -> คล้ายกับ Computed โดย Watchers จะติดตามการเปลี่ยนแปลงของข้อมูล ส่วน Computed จะเก็บผลลัพธ์การเปลี่ยนแปลง (ทำ Async ได้)
+11) Props -> แม่ไปลูก
+12) Custom Event -> ลูกไปแม่

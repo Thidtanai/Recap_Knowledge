@@ -1,8 +1,7 @@
 <template>
   <div>
-    <h1>First Component</h1>
     <FormComponent />
-    <ListData />
+    <ListData :employees="employees" />
   </div>
 </template>
 
@@ -16,8 +15,19 @@ export default {
     ListData,
     FormComponent,
   },
+  data() {
+    return {
+      employees: [
+        { name: "Kong", salary: 40000 },
+        { name: "JoJo", salary: 30000 },
+        { name: "Gam", salary: 20000 },
+        { name: "Sompong", salary: 15000 },
+        { name: "Malee", salary: 18000 },
+      ],
+    };
+  },
 };
 </script>
 
-<style>
+<style scoped>
 </style>

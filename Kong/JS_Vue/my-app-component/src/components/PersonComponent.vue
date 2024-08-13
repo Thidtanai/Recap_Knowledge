@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ message }}</h1>
+    <h1>ชื่อ: {{ name }} เงินเดือน: {{ salary }}</h1>
   </div>
 </template>
 
@@ -12,8 +12,22 @@ export default {
       message: "ข้อมูลพนักงาน",
     };
   },
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    salary: {
+      type: Number,
+      required: true,
+    },
+  },
 };
 </script>
 
-<style>
+<!-- scoped เพื่อให้มีผลแค่ component นี้ -->
+<style scoped>
+h1 {
+  color: red;
+}
 </style>

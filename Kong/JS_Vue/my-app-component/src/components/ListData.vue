@@ -1,8 +1,13 @@
 <template>
   <div>
-    <h1>{{ message }}</h1>
-    <PersonComponent />
-    <PersonComponent />
+    <ul>
+      <PersonComponent
+        v-for="(item, index) in employees"
+        :key="index"
+        :name="item.name"
+        :salary="item.salary"
+      />
+    </ul>
   </div>
 </template>
 
@@ -14,11 +19,7 @@ export default {
   components: {
     PersonComponent,
   },
-  data() {
-    return {
-      message: "แสดงรายชื่อพนักงาน",
-    };
-  },
+  props: ["employees"],
 };
 </script>
 
