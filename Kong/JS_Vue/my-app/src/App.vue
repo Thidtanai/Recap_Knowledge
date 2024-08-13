@@ -116,6 +116,16 @@ export default {
       return this.salary >= 35000 ? "Project manager" : "Programmer";
     },
   },
+  watch: {
+    salary(value) {
+      if (value > 50000) {
+        alert("เงินเดือนไม่ควรเกิน 50,000 บาท");
+        setTimeout(() => {
+          this.salary = 50000;
+        }, 2000);
+      }
+    },
+  },
 };
 </script>
 

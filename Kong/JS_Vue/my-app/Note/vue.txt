@@ -5,5 +5,6 @@
 5) Render Condition -> v-if="Condition", v-else
 6) List data -> v-for ต้องใส่ key ที่ไม่ซ้ำเข้าไปด้วย -> v-for="(item, index||key) in array||obj" :key="key"
 7) show/hide Element -> v-show="condition"
-8) Computed Properties -> ถูกเรียกใช้เมื่อข้อมูลเปลี่ยนแปลงค่า
+8) Computed Properties -> ถูกเรียกใช้เมื่อข้อมูลเปลี่ยนแปลงค่า (ทำ Async ไม่ได้)
 9) Method Properties -> ถูกเรียกใช้ทุกครั้งที่ render หน้าใหม่
+10) Wathcers Properties -> คล้ายกับ Computed โดย Watchers จะติดตามการเปลี่ยนแปลงของข้อมูล ส่วน Computed จะเก็บผลลัพธ์การเปลี่ยนแปลง (ทำ Async ได้)
