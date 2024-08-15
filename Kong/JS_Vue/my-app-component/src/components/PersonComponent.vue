@@ -19,7 +19,7 @@ export default {
     },
     salary: {
       type: Number,
-      required: true,
+      default: 15000,
     },
   },
 };
