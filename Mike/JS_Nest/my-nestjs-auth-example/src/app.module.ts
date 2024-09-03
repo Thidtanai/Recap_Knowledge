@@ -12,7 +12,7 @@ import { UserModule } from './user/user.module';
       isGlobal: true,
       envFilePath: '.env',
     }),
-    MongooseModule.forRoot(`mongodb://localhost:27017`, {
+    MongooseModule.forRoot(`mongodb://localhost:27018`, {
       user: 'root',
       pass: 'example',
       dbName: 'mikelopster',
