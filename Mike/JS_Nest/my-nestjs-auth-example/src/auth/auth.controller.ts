@@ -1,4 +1,4 @@
-import { Controller, Post, Request, UseGuards } from '@nestjs/common';
+import { Controller, Post, Request, Res, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './local-auth.guard';
 
@@ -8,8 +8,19 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('/login')
-  async login(@Request() req) {
+  // passthrough for we want to manage response and want nest to handle it too.
+  async login(@Request() req, @Res({ passthrough: true }) res) {
     const { accessToken } = await this.authService.login(req.user);
-    return { accessToken };
+    // old: return token
+    // return { accessToken };
+
+    // new: save to cookie
+    res.cookie('access_token', accessToken, {
+      // cookie will only pulled by serverside.
+      httpOnly: true,
+    });
+    return {
+      message: 'Login success',
+    };
   }
 }
