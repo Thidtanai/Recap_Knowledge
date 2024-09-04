@@ -10,5 +10,7 @@ import { User, UserSchema } from './schemas/user.schema';
   ],
   controllers: [UserController],
   providers: [UserService],
+  // export findByEmail for auth
+  exports: [UserService],
 })
 export class UserModule {}
