@@ -9,7 +9,8 @@ export class User {
   @Prop({ required: true, unique: true })
   email: string;
 
-  @Prop({ required: true })
+  // not required for google signin but still need validation.
+  @Prop()
   password: string;
 
   @Prop({ required: true })
@@ -17,6 +18,9 @@ export class User {
 
   @Prop()
   tel: string;
+
+  @Prop()
+  googleId: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
