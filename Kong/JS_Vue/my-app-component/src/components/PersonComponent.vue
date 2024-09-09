@@ -1,19 +1,33 @@
 <template>
-  <li>
-    <h1>{{ name }}</h1>
-    <button @click="showDescription(id)">ดูรายละเอียด</button> &nbsp;
-    <button @click="deleteEmployee(id)">ลบข้อมูล</button>
-    <transition name="fade">
-      <div v-show="isVisible">
-        <p>เงินเดือน: {{ salary }} บาท , ตำแหน่งงาน: {{ department }}</p>
-      </div>
-    </transition>
-  </li>
+  <!-- Slot -->
+  <CardComponent>
+    <template v-slot:card-header>
+      <h1>{{ name }}</h1>
+    </template>
+
+    <template v-slot:card-button>
+      <button @click="showDescription(id)">ดูรายละเอียด</button> &nbsp;
+      <button @click="deleteEmployee(id)">ลบข้อมูล</button>
+    </template>
+    
+    <template v-slot:card-content>
+      <transition name="fade">
+        <div v-show="isVisible">
+          <p>เงินเดือน: {{ salary }} บาท , ตำแหน่งงาน: {{ department }}</p>
+        </div>
+      </transition>
+    </template>
+  </CardComponent>
 </template>
 
 <script>
+import CardComponent from "./CardComponent.vue";
+
 export default {
   name: "PersonComponent",
+  components: {
+    CardComponent,
+  },
   data() {
     return {
       message: "ข้อมูลพนักงาน",
