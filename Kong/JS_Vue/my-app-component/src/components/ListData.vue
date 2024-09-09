@@ -9,6 +9,7 @@
         :salary="item.salary"
         :department="item.department"
         :isVisible="item.isVisible"
+        @show="toggleVisible"
       />
     </ul>
   </div>
@@ -62,6 +63,16 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    toggleVisible(emp_id) {
+      this.employees = this.employees.map((item) => {
+        if (item.id === emp_id) {
+          return { ...item, isVisible: !item.isVisible };
+        }
+        return item;
+      });
+    },
   },
 };
 </script>

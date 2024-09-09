@@ -1,7 +1,7 @@
 <template>
   <li>
     <h1>{{ name }}</h1>
-    <button>ดูรายละเอียด</button> &nbsp;
+    <button @click="showDescription(id)">ดูรายละเอียด</button> &nbsp;
     <button>ลบข้อมูล</button>
     <div v-show="isVisible">
       <p>เงินเดือน: {{ salary }} บาท , ตำแหน่งงาน: {{ department }}</p>
@@ -35,6 +35,12 @@ export default {
     },
     isVisible: {
       type: Boolean,
+    },
+  },
+  methods: {
+    showDescription(id) {
+      // send event show with id to parent component
+      this.$emit("show", id);
     },
   },
 };
