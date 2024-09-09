@@ -10,6 +10,7 @@
         :department="item.department"
         :isVisible="item.isVisible"
         @show="toggleVisible"
+        @delete="removeEmployee"
       />
     </ul>
   </div>
@@ -71,6 +72,12 @@ export default {
           return { ...item, isVisible: !item.isVisible };
         }
         return item;
+      });
+    },
+    removeEmployee(emp_id) {
+      this.employees = this.employees.filter((item) => {
+        // filter employee id != emp_id (id == emp_id will be reject)
+        return item.id !== emp_id;
       });
     },
   },
